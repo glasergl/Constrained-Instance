@@ -4,7 +4,7 @@ For example, storing the amount of money for a transaction in an integer technic
 Another example would be strings that should only contain alphabetical characters and not be empty, e.g., storing names.
 Usually, one would need to check at every position in the code where a new assignment happens whether the constraint holds.
 Even if there is just one method that does the assignment, i.e., a setter, this is usually not close to the variable declaration.
-Therefore, the constraint checked in the setter is easily missed.
+Therefore, the constraint checked in the setter is easily missed by readers.
 
 Fortunately, this library contains the wrapper type `Constrained` which can be used to wrap an instance of a class and pass a predicate at construction time.
 The predicate is added right at the instantiation which means it is written directly at the variable that is constrained.
@@ -12,7 +12,7 @@ This makes it very clear what values a variable can take.
 Note that every instance of `Constrained` must be final in order to ensure manipulation only happens through the `Constrained` class.
 
 The predicate is evaluted for the initial and every new value and throws an exception in the invalid case.
-Furthermore, commonly needed types are directly given, e.g., `PositiveInteger` (only intgeger > 0), `DigitCharacter` (only digits of the decimal system) or `RegExString` (stored string must match a given regular expression).
+Furthermore, commonly needed types are directly given, e.g., `PositiveInteger` (only integer > 0), `DigitCharacter` (only digits of the decimal system) or `RegExString` (stored string must match a given regular expression).
 Lastly, there is a method called update which makes it easy to update the value without using the getter and setter.
 Instead of
 ```java
